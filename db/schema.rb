@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_04_18_035031) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "punchtimes", force: :cascade do |t|
     t.string "punch_type"
     t.string "description"
