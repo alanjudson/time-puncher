@@ -1,0 +1,9 @@
+<header id="content_header">
+  <h1><%= pluralize(@users.size, 'User') %></h1>
+</header>
+
+<ul id="users">
+  <% @users.each do |user| %>
+    <%= link_to user.name, user %>
+  <% end %>
+</ul>
