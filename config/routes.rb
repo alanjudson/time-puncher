@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get "signup" => "users#new"
 
-  resources :sessions
+  resources :sessions, only: [:new, :create]
+  delete '/session', to: 'sessions#destroy'
   resources :users
 
   root "punchtimes#index"

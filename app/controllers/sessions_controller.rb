@@ -15,4 +15,9 @@ class SessionsController < ApplicationController
       # redirect
     end
   end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_url, notice: "You're signed out now!"
+  end
 end
