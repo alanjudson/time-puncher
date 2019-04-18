@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Punch type:</strong>
+  <%= @punchtime.punch_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @punchtime.description %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @punchtime.time %>
+</p>
+
+<%= link_to 'Edit', edit_punchtime_path(@punchtime) %> |
+<%= link_to 'Back', punchtimes_path %>
