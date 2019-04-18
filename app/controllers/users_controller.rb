@@ -14,6 +14,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # signs in after signing up
+      session[:user_id] = @user.id
       redirect_to @user, notice: "You can clock your hours now!"
     else
       render :new
