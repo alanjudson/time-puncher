@@ -1,0 +1,21 @@
+<header id="content-header">
+  <h1>Sign In</h1>
+</header>
+
+<%= form_tag(sessions_path) do %>
+  <fieldset>
+    <ol>
+      <li>
+        <%= label_tag :email %>
+        <%= email_field_tag :email, nil, autofocus: true %>
+      </li>
+      <li>
+        <%= label_tag :password %>
+        <%= password_field_tag :password, nil %>
+      </li>
+      <li>
+        <%= submit_tag 'Sign In' %>
+      </li>
+    </ol>
+  </fieldset>
+<% end %>
