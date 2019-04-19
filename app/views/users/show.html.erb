@@ -9,10 +9,10 @@
     <% end %>
   </nav>
   <section id="punchtime-section">
-    <%= link_to 'Clock In/Out', new_punchtime_path, class: "green-button" %>
+    <%= link_to 'Punch In/Out', new_punchtime_path, class: "green-button" %>
 
+    <h2>Punchtimes</h2>
     <% if @punchtimes.any? %>
-      <h2>Punchtimes</h2>
       <ul id="punchtimes">
        <% @punchtimes.each do |punchtime| %>
          <li>
@@ -22,11 +22,14 @@
             Created <%= time_ago_in_words(punchtime.created_at) %> ago
           </span>
           <span>
-            <%= link_to "Edit",edit_punchtime_path(punchtime) %>
+             <%= link_to "Edit",edit_punchtime_path(punchtime) %>
+             <%= link_to 'Delete', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %>
            </span>
          </li>
        <% end %>
       </ul>
+    <% else %>
+      <p>Let's get clockin'!</p>
     <% end %>
   </section
 >

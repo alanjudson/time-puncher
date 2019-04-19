@@ -2,10 +2,7 @@
 <ul id="punchtimes">
   <% @punchtimes.each do |punchtime| %>
     <li>
-      <article class="punchtimes">
-        <header>
-          <h2><%= link_to(punchtime.description, punchtime) %></h2>
-        </header>
+      <article class="punchtime">
         <table>
           <tr>
             <th>User</th>
@@ -23,14 +20,12 @@
             <th>Time</th>
             <td><%= punchtime.time.strftime("%b %e, %l:%M %p") %></td>
           </tr>
-          <tr>
-            <td><%= link_to 'Show', punchtime %></td>
-            <% if current_user?(punchtime.user) %>
-              <td><%= link_to 'Edit', edit_punchtime_path(punchtime) %></td>
-              <td><%= link_to 'Destroy', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          </tr>
         </table>
+          <%= link_to 'Show', punchtime %>
+          <% if current_user?(punchtime.user) %>
+            | <%= link_to 'Edit', edit_punchtime_path(punchtime) %>
+             | <%= link_to 'Delete', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
       </article>
     </li>
   <% end %>

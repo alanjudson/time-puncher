@@ -21,9 +21,9 @@
     </ol>
     <p>
       <% if @user.new_record? %>
-        <%= f.submit "Create User Account" %>
+        <%= f.submit class: "button" %>
       <% else %>
-        <%= f.submit "Update User" %>
+        <%= f.submit class: "button" %>
       <% end %>
     </p>
   </fieldset>
