@@ -15,8 +15,9 @@
     <ol>
       <li class="required">
         <%= form.label :punch_type %>
-        <%= form.radio_button :punch_type, 'punch in' %> Punch In<br />
-            <%= form.radio_button :punch_type, 'punch out' %>Punch Out<br />
+        <%= form.radio_button :punch_type, 'punch in' %> Punch In
+        <br>
+        <%= form.radio_button :punch_type, 'punch out' %> Punch Out
       </li>
       <li class="required">
         <%= form.label :time %>
@@ -28,7 +29,7 @@
       </li>
     </ol>
     <p>
-      <%= form.submit %>
+      <%= form.submit class: "button" %>
     </p>
   </fieldset>
 <% end %>
