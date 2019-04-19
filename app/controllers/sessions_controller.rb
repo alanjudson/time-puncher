@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:notice] = "Hi there, #{user.name}!"
       # goes to last url or user profile
-      redirect_to(session[:last_url] || user)
+      redirect_to(user)
       # gets rid of stale intended url
-      session[:las_url] = nil
+      session[:last_url] = nil
     else
       flash.now[:alert] = "Wrong password, try again."
       render :new

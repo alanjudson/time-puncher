@@ -1,13 +1,11 @@
 <header id="page-header">
   <div id="masthead">
     <%= image_tag 'https://s3.amazonaws.com/hammerinthenewz/logo.png' %>
-    <% if current_user %>
-      <h1><%= link_to 'All Clock-ins', root_path %></h1>
-    <% end %>
     <nav>
       <p>
         <% if current_user %>
-          <%= link_to current_user.name, current_user %>
+          <%= link_to 'All Clock-ins', root_path, class: 'link' %>
+          <%= link_to current_user.name, current_user, class: 'link' %>
           <%= link_to 'Sign Out', session_path, method: :delete, class: 'button' %>
         <% else %>
           <%= link_to "Register", signup_path, class: "button" %>
