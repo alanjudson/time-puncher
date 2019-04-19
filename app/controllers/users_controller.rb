@@ -38,8 +38,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(session[:user_id])
     @user.destroy
-    # logs him out
+    # logs them out
     session[:user_id] = nil
     redirect_to root_url, alert: "See you soon, but you'll need a new account!"
   end
