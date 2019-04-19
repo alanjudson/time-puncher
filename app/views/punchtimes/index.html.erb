@@ -14,7 +14,11 @@
           </tr>
           <tr>
             <th>Description</th>
-            <td><%= punchtime.description %></td>
+            <% if punchtime.description.present? %>
+              <td><%= punchtime.description %></td>
+            <% else %>
+              <td>My day was nondescript.</td>
+            <% end %>
           </tr>
           <tr>
             <th>Time</th>

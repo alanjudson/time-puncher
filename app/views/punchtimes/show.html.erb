@@ -10,7 +10,11 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @punchtime.description %>
+  <% if @punchtime.description.present? %>
+    <%= @punchtime.description %>
+  <% else %>
+    My day was nondescript.
+  <% end %>
 </p>
 
 <p>
