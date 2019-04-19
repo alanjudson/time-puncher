@@ -1,6 +1,6 @@
 class PunchtimesController < ApplicationController
   before_action :set_punchtime, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_signin
   # GET /punchtimes
   # GET /punchtimes.json
   def index
@@ -14,7 +14,7 @@ class PunchtimesController < ApplicationController
 
   # GET /punchtimes/new
   def new
-    @punchtime = Punchtime.new
+    @punchtime = current_user.punchtimes.build
   end
 
   # GET /punchtimes/1/edit
@@ -24,10 +24,10 @@ class PunchtimesController < ApplicationController
   # POST /punchtimes
   # POST /punchtimes.json
   def create
-    @punchtime = Punchtime.new(punchtime_params)
+    @punchtime = current_user.punchtimes.build(punchtime_params)
     respond_to do |format|
       if @punchtime.save
-        format.html { redirect_to @punchtime, notice: 'Punchtime was successfully created.' }
+        format.html { redirect_to( current_user, notice: 'Punchtime was successfully created.') }
         format.json { render :show, status: :created, location: @punchtime }
       else
         format.html { render :new }
@@ -41,7 +41,7 @@ class PunchtimesController < ApplicationController
   def update
     respond_to do |format|
       if @punchtime.update(punchtime_params)
-        format.html { redirect_to @punchtime, notice: 'Punchtime was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Punchtime was successfully updated.' }
         format.json { render :show, status: :ok, location: @punchtime }
       else
         format.html { render :edit }
@@ -61,6 +61,7 @@ class PunchtimesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_punchtime
       @punchtime = Punchtime.find(params[:id])

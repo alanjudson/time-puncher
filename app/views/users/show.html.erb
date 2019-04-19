@@ -1,12 +1,32 @@
 <article>
   <header>
-    <h1><%= @user.name %></h1>
-    <h2><%= @user.email %></h2>
+    <h1><%= @user.name %> - <%= @user.email %></h1>
   </header>
-  <footer>
-    <nav>
+  <nav>
+    <% if current_user?(@user) %>
       <%= link_to "Edit Your Account", edit_user_path(@user), class: 'button' %>
       <%= link_to 'Delete your Account', @user, method: :delete, data: { confirm: 'You sure? Life is hard out there.' }, class: 'button' %>
-    </nav>
+    <% end %>
+  </nav>
+
+  <br>
+  <%= link_to 'New Punchtime', new_punchtime_path, class: "Button" %>
+
+  <% if @punchtimes.any? %>
+    <h3>Punchtimes</h3>
+    <ol id="punchtimes">
+     <% @punchtimes.each do |punchtime| %>
+       <li>
+        <%= punchtime.punch_type.capitalize %>
+        <%= link_to punchtime.time.strftime("%b %e, %l:%M %p"), punchtime %>
+        <span class="date">Created <%= time_ago_in_words(punchtime.created_at) %> ago</span>
+         <p>
+           <%= link_to "Edit",edit_punchtime_path(punchtime) %>
+         </p>
+       </li>
+     <% end %>
+    </ol>
+  <% end %>
+  <footer>
   </footer>
 </article>
