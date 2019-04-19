@@ -15,7 +15,7 @@
 
 <p>
   <strong>Time:</strong>
-  <%= @punchtime.time %>
+  <%= @punchtime.time.strftime("%b %e, %l:%M %p") %>
 </p>
 
 <%= link_to 'Edit', edit_punchtime_path(@punchtime) %> |

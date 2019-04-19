@@ -20,7 +20,7 @@
           </tr>
           <tr>
             <th>Time</th>
-            <td><%= punchtime.time %></td>
+            <td><%= punchtime.time.strftime("%b %e, %l:%M %p") %></td>
           </tr>
           <tr>
             <td><%= link_to 'Show', punchtime %></td>
