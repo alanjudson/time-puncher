@@ -6,7 +6,11 @@ body {
   background-image: image-url("background.jpg");
   font-family: "Helvetica Neue", Helvetica, Arial;
 }
-
+#punchtime-section {
+  border: solid;
+  margin-top: 5%;
+  padding: 5%;
+}
 header#page-header {
   background-color: white;
   padding: 0px 25px;
@@ -54,12 +58,19 @@ header#page-header {
       right: 0;
       height: 60px;
       a {
-        color: blue;
+        color: $primary-link-color;
         text-decoration: none;
 
         &:hover {
           text-decoration: underline;
         }
+      }
+      a.link {
+        display: inline-block;
+        border: 1px #c2c2c2 solid;
+        border-radius: 4px;
+        padding: 4px 6px;
+        text-decoration: none;
       }
       a.button {
         background: #3E9644;

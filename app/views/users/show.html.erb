@@ -8,25 +8,28 @@
       <%= link_to 'Delete your Account', @user, method: :delete, data: { confirm: 'You sure? Life is hard out there.' }, class: 'button' %>
     <% end %>
   </nav>
+  <section id="punchtime-section">
+    <%= link_to 'New Punchtime', new_punchtime_path, class: "green-button" %>
 
+    <% if @punchtimes.any? %>
+      <h3>Punchtimes</h3>
+      <ol id="punchtimes">
+       <% @punchtimes.each do |punchtime| %>
+         <li>
+          <%= punchtime.punch_type.capitalize %>
+          <%= link_to punchtime.time.strftime("%b %e, %l:%M %p"), punchtime %>
+          <span class="date">Created <%= time_ago_in_words(punchtime.created_at) %> ago</span>
+           <p>
+             <%= link_to "Edit",edit_punchtime_path(punchtime) %>
+           </p>
+         </li>
+       <% end %>
+      </ol>
+    <% end %>
+  </section
+>
   <br>
-  <%= link_to 'New Punchtime', new_punchtime_path, class: "Button" %>
 
-  <% if @punchtimes.any? %>
-    <h3>Punchtimes</h3>
-    <ol id="punchtimes">
-     <% @punchtimes.each do |punchtime| %>
-       <li>
-        <%= punchtime.punch_type.capitalize %>
-        <%= link_to punchtime.time.strftime("%b %e, %l:%M %p"), punchtime %>
-        <span class="date">Created <%= time_ago_in_words(punchtime.created_at) %> ago</span>
-         <p>
-           <%= link_to "Edit",edit_punchtime_path(punchtime) %>
-         </p>
-       </li>
-     <% end %>
-    </ol>
-  <% end %>
   <footer>
   </footer>
 </article>
