@@ -55,7 +55,7 @@ class PunchtimesController < ApplicationController
   def destroy
     @punchtime.destroy
     respond_to do |format|
-      format.html { redirect_to punchtimes_url, notice: 'Punchtime was successfully destroyed.' }
+      format.html { redirect_to current_user, notice: 'Punchtime was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
