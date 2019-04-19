@@ -1,29 +1,33 @@
-<h1>Punchtimes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Punch type</th>
-      <th>Description</th>
-      <th>Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @punchtimes.each do |punchtime| %>
-      <tr>
-        <td><%= punchtime.punch_type %></td>
-        <td><%= punchtime.description %></td>
-        <td><%= punchtime.time %></td>
-        <td><%= link_to 'Show', punchtime %></td>
-        <td><%= link_to 'Edit', edit_punchtime_path(punchtime) %></td>
-        <td><%= link_to 'Destroy', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<ul id="punchtimes">
+  <% @punchtimes.each do |punchtime| %>
+    <li>
+      <article class="punchtimes">
+        <header>
+          <h2><%= link_to(punchtime.description, punchtime) %></h2>
+        </header>
+        <table>
+          <tr>
+            <th>Punch type</th>
+            <td><%= punchtime.punch_type %></td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td><%= punchtime.description %></td>
+          </tr>
+          <tr>
+            <th>Time</th>
+            <td><%= punchtime.time %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'Show', punchtime %></td>
+            <td><%= link_to 'Edit', edit_punchtime_path(punchtime) %></td>
+            <td><%= link_to 'Destroy', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        </table>
+      </article>
+    </li>
+  <% end %>
+</ul>
 <br>
 
 <%= link_to 'New Punchtime', new_punchtime_path %>

@@ -11,22 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :punch_type %>
-    <%= form.text_field :punch_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.datetime_select :time %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= form.label :punch_type %>
+        <%= form.text_field :punch_type %>
+      </li>
+      <li class="required">
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+      </li>
+      <li class="required">
+        <%= form.label :time %>
+        <%= form.datetime_select :time %>
+      </li>
+      <li class="required"></li>
+    </ol>
+    <p>
+      <%= form.submit %>
+    </p>
+  </fieldset>
 <% end %>

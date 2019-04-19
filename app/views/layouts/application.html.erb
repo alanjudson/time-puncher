@@ -11,7 +11,13 @@
 
   <body>
     <%= render "layouts/header" %>
-    <%= render "layouts/flashes" %>
-    <%= yield %>
+    <div id="wrapper">
+      <%= render "layouts/flashes" %>
+      <div id="container">
+        <section id="content">
+          <%= yield %>
+        </section>
+      </div>
+    </div>
   </body>
 </html>
