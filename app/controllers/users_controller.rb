@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @punchtimes = @user.punchtimes
+    @punchtimes = @user.punchtimes.order("created_at DESC")
   end
 
   def new

@@ -4,7 +4,7 @@ class PunchtimesController < ApplicationController
   # GET /punchtimes
   # GET /punchtimes.json
   def index
-    @punchtimes = Punchtime.all
+    @punchtimes = Punchtime.all.order("created_at DESC")
   end
 
   # GET /punchtimes/1
