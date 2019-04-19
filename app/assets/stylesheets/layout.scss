@@ -13,12 +13,11 @@ header#page-header {
   h1 a {
     height: 0px;
     padding-top: 60px;
-    display: block;
     font-family: "Esteban", sans-serif;
     color: #fff;
     text-decoration: none;
     overflow: hidden;
-    background: image-url("logo.png") no-repeat 0 0;
+    background: image_path("logo.png") no-repeat 0 0;
   }
 
   a.button {
