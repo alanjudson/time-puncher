@@ -1,6 +1,9 @@
 <header id="page-header">
   <div id="masthead">
-    <h1><%= link_to 'All Clock-ins', root_path %></h1>
+    <%= image_tag 'https://s3.amazonaws.com/hammerinthenewz/logo.png' %>
+    <% if current_user %>
+      <h1><%= link_to 'All Clock-ins', root_path %></h1>
+    <% end %>
     <nav>
       <p>
         <% if current_user %>

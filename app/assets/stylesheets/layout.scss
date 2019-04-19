@@ -2,29 +2,29 @@
 
 body {
   color: $primary-text-color;
+  background: #f3f3f39;
   background-image: image-url("background.jpg");
   font-family: "Helvetica Neue", Helvetica, Arial;
 }
 
 header#page-header {
-  background-color: $secondary-background-color;
+  background-color: white;
   padding: 0px 25px;
 
   h1 a {
     height: 0px;
     padding-top: 60px;
     font-family: "Esteban", sans-serif;
-    color: #fff;
+    color: #237CBE;
     text-decoration: none;
     overflow: hidden;
-    background: image_path("logo.png") no-repeat 0 0;
   }
 
   a.button {
     margin-left: 10px;
     border-color: $subdued-color;
     &:hover {
-      background-color: #000;
+      background-color: #3E9644;
       color: #fff;
       border-color: #000;
       text-decoration: none;
@@ -35,7 +35,6 @@ header#page-header {
     margin: 0 auto;
     width: 960px;
     position: relative;
-    text-shadow: #000 0 0 2px;
 
     h1 {
       margin: 0;
@@ -51,12 +50,17 @@ header#page-header {
       right: 0;
       height: 60px;
       a {
-        color: $secondary-link-color;
+        color: blue;
         text-decoration: none;
 
         &:hover {
           text-decoration: underline;
         }
+      }
+      a.button {
+        background: #3E9644;
+        color: $secondary-link-color;
+        text-decoration: none;
       }
     }
   }
@@ -82,7 +86,7 @@ footer#page-footer {
 }
 
 div#wrapper {
-  background: #fff;
+  background: #f3f3f3;
   padding: 10px;
   min-height: 400px;
   overflow: hidden;
