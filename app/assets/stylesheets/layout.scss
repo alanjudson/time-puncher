@@ -18,7 +18,11 @@ header#page-header {
     color: #237CBE;
     text-decoration: none;
     overflow: hidden;
+    &:hover {
+      background: none;
+    }
   }
+
 
   a.button {
     margin-left: 10px;
