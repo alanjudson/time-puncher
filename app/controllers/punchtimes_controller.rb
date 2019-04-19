@@ -25,7 +25,6 @@ class PunchtimesController < ApplicationController
   # POST /punchtimes.json
   def create
     @punchtime = Punchtime.new(punchtime_params)
-
     respond_to do |format|
       if @punchtime.save
         format.html { redirect_to @punchtime, notice: 'Punchtime was successfully created.' }
