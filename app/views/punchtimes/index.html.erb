@@ -24,8 +24,10 @@
           </tr>
           <tr>
             <td><%= link_to 'Show', punchtime %></td>
-            <td><%= link_to 'Edit', edit_punchtime_path(punchtime) %></td>
-            <td><%= link_to 'Destroy', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if current_user?(punchtime.user) %>
+              <td><%= link_to 'Edit', edit_punchtime_path(punchtime) %></td>
+              <td><%= link_to 'Destroy', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         </table>
       </article>
