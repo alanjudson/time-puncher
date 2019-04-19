@@ -9,22 +9,24 @@
     <% end %>
   </nav>
   <section id="punchtime-section">
-    <%= link_to 'New Punchtime', new_punchtime_path, class: "green-button" %>
+    <%= link_to 'Clock In/Out', new_punchtime_path, class: "green-button" %>
 
     <% if @punchtimes.any? %>
-      <h3>Punchtimes</h3>
-      <ol id="punchtimes">
+      <h2>Punchtimes</h2>
+      <ul id="punchtimes">
        <% @punchtimes.each do |punchtime| %>
          <li>
-          <%= punchtime.punch_type.capitalize %>
-          <%= link_to punchtime.time.strftime("%b %e, %l:%M %p"), punchtime %>
-          <span class="date">Created <%= time_ago_in_words(punchtime.created_at) %> ago</span>
-           <p>
-             <%= link_to "Edit",edit_punchtime_path(punchtime) %>
-           </p>
+          <%= punchtime.punch_type.capitalize %> -
+          <%= link_to punchtime.time.strftime("%l:%M %p (%b %e)"), edit_punchtime_path(punchtime) %> -
+          <span class="date">
+            Created <%= time_ago_in_words(punchtime.created_at) %> ago
+          </span>
+          <span>
+            <%= link_to "Edit",edit_punchtime_path(punchtime) %>
+           </span>
          </li>
        <% end %>
-      </ol>
+      </ul>
     <% end %>
   </section
 >
