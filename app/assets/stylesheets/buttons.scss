@@ -43,3 +43,19 @@ a.button {
   }
 
 }
+
+a.green-button {
+  display: inline-block;
+  border: 1px $subdued-color solid;
+  border-radius: 4px;
+  padding: 4px 6px;
+  background: #3E9644;
+  color: #FFF;
+  text-decoration: none;
+  &:hover {
+    background-color: #3E9644;
+    color: #fff;
+    border-color: #000;
+    text-decoration: none;
+  }
+}
