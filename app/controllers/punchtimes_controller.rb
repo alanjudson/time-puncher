@@ -1,6 +1,7 @@
 class PunchtimesController < ApplicationController
   before_action :set_punchtime, only: [:show, :edit, :update, :destroy]
   before_action :require_signin
+  before_action :require_right_user, only: [:show, :edit, :update, :destroy]
   # GET /punchtimes
   # GET /punchtimes.json
   def index
@@ -64,11 +65,19 @@ class PunchtimesController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_punchtime
-      @punchtime = Punchtime.find(params[:id])
+      @punchtime ||= Punchtime.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def punchtime_params
       params.require(:punchtime).permit(:punch_type, :description, :time)
+    end
+
+    def require_right_user
+      @punchtime ||= Punchtime.find(params[:id])
+      @user = @punchtime.user
+      unless current_user?(@user) || current_user_admin?
+        redirect_to root_url, alert: "Not your account"
+      end
     end
 end

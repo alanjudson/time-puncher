@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_signin, except: [:new, :create]
   before_action :require_right_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -51,10 +52,8 @@ private
   end
 
   def require_right_user
-    puts "\n\n\nSFDJLSDKJFLSKDJFLSKDJF"
     @user = User.find(params[:id])
-    Rails.logger.info("Current User #{current_user.name}\n @user: #{@user}")
-    unless current_user?(@user)
+    unless current_user?(@user) || current_user_admin?
       redirect_to root_url, alert: "Not your account"
     end
   end
