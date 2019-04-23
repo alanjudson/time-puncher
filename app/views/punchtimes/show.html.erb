@@ -21,6 +21,7 @@
   <strong>Time:</strong>
   <%= @punchtime.time.strftime("%b %e, %l:%M %p") %>
 </p>
-
-<%= link_to 'Edit', edit_punchtime_path(@punchtime) %> |
-<%= link_to 'Back', user_path(current_user) %>
+<% if current_user?(@punchtime.user) || current_user_admin? %>
+  <%= link_to 'Edit', edit_punchtime_path(@punchtime) %> |
+  <%= link_to 'Back', user_path(current_user) %>
+<% end %>

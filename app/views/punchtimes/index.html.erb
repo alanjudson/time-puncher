@@ -25,8 +25,8 @@
             <td><%= punchtime.time.strftime("%b %e, %l:%M %p") %></td>
           </tr>
         </table>
-          <%= link_to 'Show', punchtime %>
-          <% if current_user?(punchtime.user) %>
+          <% if current_user?(punchtime.user) || current_user_admin?%>
+             <%= link_to 'Show', punchtime %>
             | <%= link_to 'Edit', edit_punchtime_path(punchtime) %>
              | <%= link_to 'Delete', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
