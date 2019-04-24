@@ -10,7 +10,7 @@
           </tr>
           <tr>
             <th>Punch type</th>
-            <td><%= punchtime.punch_type %></td>
+            <td><%= link_to "#{punchtime.punch_type}", punchtime %></td>
           </tr>
           <tr>
             <th>Description</th>
@@ -22,14 +22,14 @@
           </tr>
           <tr>
             <th>Time</th>
-            <td><%= punchtime.time.strftime("%b %e, %l:%M %p") %></td>
+            <td><%= punchtime.time.strftime("%b %e, %l:%M %p") %>
+              <% if current_user?(punchtime.user) || current_user_admin?%>
+              <%= link_to 'Edit', edit_punchtime_path(punchtime) %>
+            | <%= link_to 'Delete', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+        <% end %>
           </tr>
         </table>
-          <% if current_user?(punchtime.user) || current_user_admin?%>
-             <%= link_to 'Show', punchtime %>
-            | <%= link_to 'Edit', edit_punchtime_path(punchtime) %>
-             | <%= link_to 'Delete', punchtime, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
       </article>
     </li>
   <% end %>

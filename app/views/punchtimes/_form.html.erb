@@ -21,7 +21,7 @@
       </li>
       <li class="required">
         <%= form.label :time %>
-        <%= form.datetime_select :time %>
+        <%= form.text_field :time, id: "time" %>
       </li>
       <li>
         <%= form.label :description, "Special Notes (optional)" %>
@@ -33,3 +33,15 @@
     </p>
   </fieldset>
 <% end %>
+
+<script type="text/javascript">
+  const el = document.getElementById('time');
+  flatpickr(el, {
+    enableTime:      true,
+    altInput:        true,
+    minDate:         "today",
+    altFormat:       "F j, Y at h:i K",
+    dateFormat:      "Y-m-d H:i",
+    minuteIncrement: 1
+  });
+</script>
