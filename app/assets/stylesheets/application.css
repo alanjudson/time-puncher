@@ -18,4 +18,6 @@
  *= require forms
  *= require punchtimes.scss
  *= require users
+ *= require flatpickr
+
  */

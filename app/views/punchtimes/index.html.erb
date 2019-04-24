@@ -1,7 +1,7 @@
 <h1>All Users' Punch Times</h1>
 <ul id="punchtimes">
   <% @punchtimes.each do |punchtime| %>
-    <li>
+    <%= content_tag :li, class: cycle("Even", "Odd") do %>
       <article class="punchtime">
         <table>
           <tr>
@@ -31,7 +31,7 @@
           </tr>
         </table>
       </article>
-    </li>
+    <% end %>
   <% end %>
 </ul>
 <br>

@@ -36,6 +36,7 @@ article#punchtimes {
     font-size: 1.15em;
   }
 
+
   footer {
     margin: 2em 0;
     text-align: center;
@@ -51,6 +52,12 @@ ul#punchtimes {
   margin: 0;
   padding: 0;
 
+  li {
+    padding: 12px;
+    &.Even {
+      background: white;
+    }
+  }
   article.punchtime {
     margin-bottom: 1.5em;
     padding-bottom: 1.5em;
