@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "signup" => "users#new"
+  get "signup" => "users#new", as: "signup"
+  get "login" => "sessions#new", as: "login"
 
   resources :sessions, only: [:new, :create]
   delete '/session', to: 'sessions#destroy'
