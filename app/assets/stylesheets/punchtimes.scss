@@ -93,7 +93,10 @@ ul#punchtimes {
       margin: 1em 0 0 1em;
       line-height: 1.5em;
       font-size: 1.1em;
-
+      tr.user {
+        font-size: 28px;
+        margin: 5px;
+      }
       th {
         width: 20%;
         text-align: right;
