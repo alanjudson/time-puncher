@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   get "signup" => "users#new"
 
   resources :sessions, only: [:new, :create]

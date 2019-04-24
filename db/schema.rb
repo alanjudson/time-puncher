@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_154849) do
+ActiveRecord::Schema.define(version: 2019_04_23_190554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "type"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "punchtimes", force: :cascade do |t|
     t.string "punch_type"
@@ -34,5 +44,6 @@ ActiveRecord::Schema.define(version: 2019_04_23_154849) do
     t.boolean "admin", default: false
   end
 
+  add_foreign_key "posts", "users"
   add_foreign_key "punchtimes", "users"
 end
